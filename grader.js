@@ -43,14 +43,13 @@ var getHtmlFromUrl = function(url) {
        console.log("An error getting the Url occured");
        this.retry(5000);
     } else {
-	fs.writeFileSync('temp.html',String(result))
-	checkAndPrint('temp.html',program.checks);
+	checkAndPrint(String(result),program.checks);
     }
 });
 };
 
 var cheerioHtmlFile = function(htmlfile) {
-    return cheerio.load(fs.readFileSync(htmlfile));
+    return cheerio.load(htmlfile);
 };
 
 var loadChecks = function(checksfile) {
@@ -91,7 +90,7 @@ if(require.main == module) {
     if(program.url) {
 	getHtmlFromUrl(program.url,program.checks);
     } else {
-	checkAndPrint(program.file,program.checks);
+	checkAndPrint(fs.readFileSync(program.file),program.checks);
     }
 } else {
     exports.checkHtmlFile = checkHtmlFile;

@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link type="text/css" rel="stylesheet" 
 	  href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css"> 
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
+ 
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"> </script>
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css">
     <style type="text/css">
+
       /*media queries to make the navbar be responsive*/
       /* https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries */
       /*Large Desktop*/
@@ -43,34 +49,58 @@
       /*Main body and headings*/
 
       body {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        font-family: 'Open Sans', Helvetica,Arial,sans-serif;
       }
-      .container {
-        width: 960px;
-      }
-      p.lead {
-        padding-top: 15px;
-      }
-      .navigation, .pitch, .section1, .section2, .faq, .footer {
-        padding: 10px 0px 10px 0px;
-      }
-      .video, .thermometer, .order, .social {
-        border: 1px dotted;
+      .heading, .subheading {
+        font-family: 'Ubuntu',Helvetica, Arial, sans-serif;
         text-align: center;
       }
-      .video {
-        /* Internal borders have 1px width, thus need to add 4 x 1px to 120px. */
-        height: 124px;
-        line-height: 124px;
+      p.lead {
+        padding-top: 1.5%;
+        font-size: 24px;
+        line-height: 30px;
       }
-      .thermometer, .order, .social {
-        /* line-height to vertically center: http://phrogz.net/css/vertical-align/index.html */
-        height: 40px;
-        line-height: 40px;
+      p {
+        font-size: 18px;
+        line-height: 24px;
       }
-      div.row {
-        border: 1px solid;
+
+      /*Video pitch and Action */
+      .pitch {
+        padding: 2.5% 0%;
+      }
+      .order {
+        padding: 2.5% 0%;
+      }
+      .actions {
+        background-color: #343434;
+        padding: 3% -%;
+      }
+      .video, .thermometer, .order, .social, .statistics {
+        text-align: center;
+      }
+      .statistics h3, .statistics p {
+        color: white;
+      }
+
+      /*Marketing Copy and Footer */
+      .copy {
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+        text-align: justify;
+      }
+      .asset {
+        padding: 2.5% 0%;
+      }
+      .footer {
+        color: #cccccc;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 11px:
+      }
+      .footer a {
+        color: #ccccff;
       }
     </style>
   </head>
@@ -108,44 +138,103 @@
       </div>
       <div class = "row-fluid subheading">
 	<div class="span12">
+	  <!-- Special typography from bootstrap for lead paragraph -->
+	  <!-- http://twitter.github.io/bootstrap/base-css.html#typograph -->
 	  <p class = "lead">One sentence description.</p>
 	</div>
       </div>
       <div class="row-fluid pitch">
-	<div class="span6 video">
-	  Video
+	<div class="span5 offset1 video">
+	  <img class="img-polaroid" src="http://placehold.it/480x300">
 	</div>
-	<div class="span6">
-	  <div class="thermometer">
-	    Thermometer
+
+      <!-- we define a new 'actions div to contain statistics, order, and share buttons -->
+      <div class="span5 actions">
+	<div class="span8 offset2">
+	  <div class="statistics">
+	    <div class="span4">
+	      <!-- linediv-l and linediv-r give dividing lines that look different in horizontal and vertical layouts, illustrating media queries. -->
+	      <div class = "linediv-l">
+		<h3>1000</h3><p>backers</p>
+	      </div>
+	    </div>
+	    <div class="span4">
+	      <div class="linediv-c">
+		<h3>$6000</h3><p>of $10,000</p>
+	      </div>
+	    </div>
+	    <div class="span4">
+	      <div class="linediv-r">
+		<h3>10</h3><p>days left</p>
+	      </div>
+	    </div>
 	  </div>
-	  <div class="order">
-	    Order
+	</div>
+	<div class="span10 offset1">
+	  <!-- Bootstrap progress bar -->
+	  <!-- http://twitter.github.io/bootstrap/components/html#progress -->
+	  
+	  <div class="thermometer progress active">
+	    <div class="bar bar-success" style="width: 60%;"></div>
+            <div class="bar bar-warning" style="width: 40%;"></div>
 	  </div>
-	  <div class="social">
-	    Social
-	  </div>
+        </div>
+	<div class="span6 offset3 order">
+	  <!--Standard Bootstrap Button -->
+	  <!--See: http://twitter.github.io/bootstrap.base-css.html#buttons -->
+	  <button class="btn btn-success btn-large">Preorder</button>
+	</div>
+	<div class="span5 offset2 social">
+	  <!-- Social buttons are not included in default Bootstrap -->
+	  <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
+	  <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
+          <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
 	</div>
       </div>
-      <div class="row-fluid section1">
-	<div class="span12">
-	  Marketing Section1 
-	</div>
+    </div>
+
+    <!-- beyond this section the marketing copy begins -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
+    <!-- https://twitter.github.io/bootstrap/base-css.html#images -->
+    <!--http://placehold.it -->
+    <div class="row-fluid section1">
+      <div class="span5 offset1 asset">
+	<img class="img-polaroid" src="http://placehold.it/480x300">
       </div>
-      <div class="row-fluid section2">
-	<div class="span12">
-	  Marketing Section2
-	</div>
+      <div class="span5 copy">
+	<p>
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque dignissim leo a volutpat. Nullam non auctor arcu. Aenean ac congue sem, a vestibulum leo. Nam rutrum mi vitae velit mattis blandit. Vestibulum nec luctus urna. Integer et justo lacus. Praesent eu quam iaculis nunc varius gravida. Suspendisse augue eros, gravida quis sapien non, gravida placerat mauris. Aliquam lacinia sed dui vel imperdiet. Aliquam lobortis risus sit amet nisl placerat, vel congue augue sagittis. Aenean facilisis arcu nibh, aliquet condimentum velit rhoncus eu. Phasellus interdum quam vitae sodales tincidunt. Sed rhoncus iaculis sagittis. Morbi sed massa nec quam lacinia gravida. Sed commodo tempus vestibulum. Etiam vitae magna lorem.
+	</p>
       </div>
-      <div class="row-fluid faq">
-	<div class="span12">
-	  FAQ
-	</div>
+    </div>
+    <div class="row-fluid section2">
+      <div class="span5 offset1 copy copy-right">
+	<p>
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque dignissim leo a volutpat. Nullam non auctor arcu. Aenean ac congue sem, a vestibulum leo. Nam rutrum mi vitae velit mattis blandit. Vestibulum nec luctus urna. Integer et justo lacus. Praesent eu quam iaculis nunc varius gravida. Suspendisse augue eros, gravida quis sapien non, gravida placerat mauris. Aliquam lacinia sed dui vel imperdiet. Aliquam lobortis risus sit amet nisl placerat, vel congue augue sagittis. Aenean facilisis arcu nibh, aliquet condimentum velit rhoncus eu. Phasellus interdum quam vitae sodales tincidunt. Sed rhoncus iaculis sagittis. Morbi sed massa nec quam lacinia gravida. Sed commodo tempus vestibulum. Etiam vitae magna lorem.
+	</p>
       </div>
+      <div class="span5 asset">
+	<img class="img-polaroid" src="http://placehold.it/480x300">
+      </div>
+    </div>
+
+    <!-- for the FAQ, we introduce a bit of JS -->
+    <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
+    <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
+    <div class="row-fluid faq">
+      <div class="span12">
+	FAQ
+      </div>
+    </div>
+</div>
+</div>
+
+      <!-- Not crucial but we put this under a CC By-SA 3.0 licencse. -->
+      <!-- http://creativecommons.org/licenses/ -->
       <div class="row-fluid footer">
-	<div class="span12">
-	  Footer
-	</div>
+        <div class="span12">
+	  <p>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>, without all the cruft that would otherwise be at the bottom of the page.</p>
+        </div>
       </div>
     </div>
   </body>

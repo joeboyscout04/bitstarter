@@ -10,3 +10,9 @@ node_modules
 
 # Emacs
 *~
+#more files
+.pgpass
+grader.js
+sample.html
+temp.html
+checks.json
